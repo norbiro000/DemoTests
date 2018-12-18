@@ -19,6 +19,8 @@ class PlaceListViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         viewModel.viewDidLoad()
         headerLabel.text = viewModel.title
+        
+        tableView.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,7 +32,8 @@ class PlaceListViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlaceTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellJaa", for: indexPath) as! PlaceTableCell
+        
         let cellDataModel = viewModel.tableCellDataModelForIndexPath(indexPath)
         cell.configureCell(model: cellDataModel)
         return cell
