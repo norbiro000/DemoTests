@@ -1,5 +1,5 @@
 //
-//  DemoTestsTests.swift
+//  PlaceTests.swift
 //  DemoTestsTests
 //
 //  Created by Jakkapan Thongkum on 18/12/2561 BE.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import DemoTests
 
-class DemoTestsTests: XCTestCase {
+class PlaceTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,6 +31,15 @@ class DemoTestsTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testAttributes() {
+        let attributes: [String: Any] = ["name": "Cafe De Latina", "vicinity": "Bengaluru", "rating": 4.8, "opening_hours": ["open_now": false]]
+        let place = Place(attributes: attributes)
+        XCTAssertEqual(place.name, "Cafe De Latina")
+        XCTAssertEqual(place.address, "Bengaluru")
+        XCTAssertEqual(place.rating, 4.8)
+        XCTAssertEqual(place.openStatus, false)
     }
 
 }
